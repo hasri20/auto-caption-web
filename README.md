@@ -10,9 +10,9 @@ The frontend is built with React, TypeScript, and Vite, and communicates with a 
 
 ## Screenshots
 
-![Home Screen](screenshot/home.png)
+![Home Screen](https://github.com/hasri20/auto-caption-web/blob/main/screenshot/screnshot%20home.png)
 
-![Result Screen](screenshot/result.png)
+![Result Screen](https://github.com/hasri20/auto-caption-web/blob/main/screenshot/screenshot%20result.png)
 
 ## Features
 
