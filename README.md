@@ -40,7 +40,7 @@ The frontend is built with React, TypeScript, and Vite, and communicates with a 
 
 1. Clone the repository and navigate to the project directory:
    ```bash
-   cd video-caption-app
+   cd video-caption-web
    ```
 
 2. Install the dependencies:
