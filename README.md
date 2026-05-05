@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+# AI Auto-Caption Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend component of the AI Auto-Caption Application, a modern web app designed to automatically generate and display captions on uploaded videos.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The application provides a seamless, synchronized viewing experience for end users by allowing them to upload video files, which are then processed to generate precise subtitles. It uses a modern, glassmorphism-themed user interface built with React.
 
-## React Compiler
+The frontend is built with React, TypeScript, and Vite, and communicates with a Python (FastAPI) backend. The backend leverages the OpenAI Whisper model for accurate speech-to-text transcription. Instead of relying on complex FFmpeg subtitle encoding, this application uses a robust WebVTT-based captioning workflow for smooth in-browser playback and display.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Screenshots
 
-## Expanding the ESLint configuration
+![Home Screen](screenshot/home.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+![Result Screen](screenshot/result.png)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Video Upload**: A sleek drag-and-drop interface for uploading video files.
+- **Automated Captioning**: Integration with a FastApi/Whisper backend to transcribe audio to text.
+- **Synchronized Playback**: Subtitles are displayed perfectly in sync with the video using WebVTT format.
+- **Modern UI/UX**: A clean, responsive design utilizing a glassmorphism aesthetic.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Framework**: React 19
+- **Build Tool**: Vite
+- **Language**: TypeScript
+- **Icons**: Lucide React
+- **Styling**: Vanilla CSS (Custom Design System)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Prerequisites
+
+- Node.js installed on your machine.
+- The Python (FastAPI) backend should be running to handle the video transcription.
+
+### Installation
+
+1. Clone the repository and navigate to the project directory:
+   ```bash
+   cd video-caption-app
+   ```
+
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+The application will be available at `http://localhost:5173` (or the port specified by Vite).
+
+## Backend Integration
+
+Ensure your backend API is properly configured and running. The frontend expects to send video files to the backend and receive WebVTT formatted subtitles in return.
